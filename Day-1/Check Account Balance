@@ -1,0 +1,19 @@
+const checkBalance = (accountNumber) => {
+    return new Promise((resolve, reject) => {
+        console.log("Fetching balance for Account:", accountNumber);
+
+        setTimeout(() => {
+            const balances = { "12345": 5000, "67890": 15000 }; // Dummy data
+            if (balances[accountNumber]) {
+                resolve(`Your balance is $${balances[accountNumber]}`);
+            } else {
+                reject("Account not found!");
+            }
+        }, 2000);
+    });
+};
+
+// Usage
+checkBalance("12345")
+    .then(balance => console.log(balance))
+    .catch(error => console.log(error));

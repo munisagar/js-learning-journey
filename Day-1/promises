@@ -1,0 +1,26 @@
+
+// This is a simple example of using Promises in JavaScript to handle asynchronous operations.
+// Promises are used to handle asynchronous operations in JavaScript. They represent a value that may be available now, or in the future, or never.
+// A Promise is in one of these states: pending, fulfilled, or rejected.
+// A Promise is a JavaScript object that links producing code and consuming code. It allows you to attach callbacks instead of using the traditional callback approach.
+// The Promise constructor takes a function as an argument, which is called the executor. The executor function takes two arguments: resolve and reject.
+// The resolve function is called when the asynchronous operation is successful, and the reject function is called when it fails.
+// The Promise object has three states: pending, fulfilled, and rejected. When the promise is fulfilled, it can be resolved with a value or rejected with an error.
+// The then() method is used to handle the fulfilled state, and the catch() method is used to handle the rejected state.
+// Example of a simple Promise
+const fetchData = new Promise((resolve, reject) => {   // Creating a new Promise object
+    let success = true;  // Simulating a condition for success or failure
+
+    setTimeout(() => {   // Simulating a network request
+        if (success) {  // Simulating a successful response
+            resolve("Data fetched successfully!");  // Resolve the promise with data
+        } else {
+            reject("Error fetching data!");
+        }
+    }, 2000);  // 2 seconds delay to simulate network latency
+});
+
+// Using the Promise
+fetchData  
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
